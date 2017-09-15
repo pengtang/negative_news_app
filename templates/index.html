@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>DST News Aggregation</h1>
+
+    <br>
+    <br>
+<!-- All posts -->
+<!--<h3>Posts:</h3>-->
+<!--{% for post in posts %}-->
+  <!--<strong>Title:</strong> {{ post.title }} <br>-->
+  <!--<strong>Post:</strong> {{ post.description }} <br>-->
+  <!--<strong>Author:</strong> {{ post.author.name }} <br>-->
+<!--<br>-->
+<!--{% endfor %}-->
+
+
+    {% import '_helpers.html' as helpers %}
+
+    {% for article in articles %}
+        <!--<strong>{{ article.link }}</strong>-->
+        {{ loop.index }}
+        <string>Article link:</string> <a href=" {{ article.link }} ">{{ article.title }}</a> <br>
+        <!--<strong>Article title:</strong>{{ article.title }} <br>-->
+        <br>
+    {% endfor %}
+
+    <br>
+
+    {{ helpers.render_pagination(pagination) }}
+
+
+{% endblock %}

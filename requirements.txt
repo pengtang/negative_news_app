@@ -1,0 +1,9 @@
+newspaper3k
+unidecode
+future
+selenium
+google-api-python-client
+sqlalchemy
+bs4
+flask
+flask-paginate
