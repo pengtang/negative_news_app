@@ -7,3 +7,5 @@ sqlalchemy
 bs4
 flask
 flask-paginate
+flask_sqlalchemy
+psycopg2

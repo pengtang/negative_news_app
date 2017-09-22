@@ -10,10 +10,12 @@
 
 ---------
 ## **Store Data in DB**
---------
 ### **Complete**
 
 ---------
+## **Prerequisite
+### postgresql
+
+---------
 ## **Web App**
---------
 ### **Basic Rendering with Pagination**
