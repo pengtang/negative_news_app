@@ -1,13 +1,16 @@
 import datetime
 import sqlalchemy
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, DateTime, Text
+from sqlalchemy import Column, DateTime, Text, BigInteger
 from math import ceil
 
 Base = declarative_base()
 
 
 class RelatedArticles(Base):
+    """
+    This table stores data coming from google search api
+    """
     # TODO: Maybe add some fields, e.g. author, keywords
 
     __tablename__ = "related_articles"
@@ -26,6 +29,23 @@ class RelatedArticles(Base):
 
     def __repr__(self):
         return '<User %r>' % self.link
+
+
+class RelatedTweets(Base):
+    """
+    This table stores data coming from tweets(twitter)
+    """
+    # TODO: Still unfinished
+
+    __tablename__ = "related_tweets"
+
+    tweet_id = Column(Text)
+    twitter_user_id = Column(BigInteger)
+    source = Column(Text)
+
+    tweet_datetime = Column(DateTime, default=datetime.datetime.utcnow)
+    text = Column(Text)
+    language = Column(Text)
 
 
 class Pagination(object):
