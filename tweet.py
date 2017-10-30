@@ -48,6 +48,7 @@ class Tweet(object):
         :param mode: str ('batch' or 'stream')
         """
         self.topics = topics
+        self.GEN_MAX_TWEET = 100  # the max number of tweets to generate(The twitter API will only return a max of 100 count)
         self.tweet_file = tweet_file
         self.mode = mode
         self.tweets = []
@@ -100,7 +101,7 @@ class Tweet(object):
         # batch mode generating the tweets
         if self.mode == 'batch':
             # search_results = api.search(q=['#argus', '#dstsystems', '#BFDS'], lang='en', count=100)
-            self.tweets = self.api.search(q=self.topics)
+            self.tweets = self.api.search(q=self.topics, count=self.GEN_MAX_TWEET)
             if not save_file:
                 return self.tweets
             else:
