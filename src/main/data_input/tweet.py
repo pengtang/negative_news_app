@@ -3,8 +3,10 @@ import sys
 import time
 import json
 
+# TODO: Remove credentials
+# TODO: Change some print to logging
 
-# TODO: Change some print to loggings
+
 class MyStreamListener(tweepy.StreamListener):
     def __init__(self, save_as_file, time_limit=60):
         self.start_time = time.time()
@@ -48,7 +50,8 @@ class Tweet(object):
         :param mode: str ('batch' or 'stream')
         """
         self.topics = topics
-        self.GEN_MAX_TWEET = 100  # the max number of tweets to generate(The twitter API will only return a max of 100 count)
+        # (The twitter API will only return a max of 100 count)
+        self.GEN_MAX_TWEET = 100  # the max number of tweets to generate
         self.tweet_file = tweet_file
         self.mode = mode
         self.tweets = []

@@ -1,7 +1,7 @@
 import datetime
 import sqlalchemy
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, DateTime, Text, BigInteger
+from sqlalchemy import Column, DateTime, Text, BigInteger, Float
 from math import ceil
 
 Base = declarative_base()
@@ -15,37 +15,40 @@ class RelatedArticles(Base):
 
     __tablename__ = "related_articles"
 
-    link             = Column(Text, primary_key=True)
-    created_date     = Column(DateTime, default=datetime.datetime.utcnow)
-    title            = Column(Text)
-    keyword_searched = Column(Text)
-    text             = Column(Text)
+    link                = Column(Text, primary_key=True)
+    created_date        = Column(DateTime, default=datetime.datetime.utcnow)
+    title               = Column(Text)
+    keyword_searched    = Column(Text)
+    text                = Column(Text)
+    related_probability = Column(Float)
 
-    def __init__(self, link, title, keyword_searched, text):
+    def __init__(self, link, title, keyword_searched, text, related_probability):
         self.link = link
         self.title = title
         self.keyword_searched = keyword_searched
         self.text = text
+        self.related_probability = related_probability
 
     def __repr__(self):
         return '<User %r>' % self.link
 
 
-class RelatedTweets(Base):
-    """
-    This table stores data coming from tweets(twitter)
-    """
-    # TODO: Still unfinished
-
-    __tablename__ = "related_tweets"
-
-    tweet_id = Column(Text)
-    twitter_user_id = Column(BigInteger)
-    source = Column(Text)
-
-    tweet_datetime = Column(DateTime, default=datetime.datetime.utcnow)
-    text = Column(Text)
-    language = Column(Text)
+# # TODO: Still unfinished
+# class RelatedTweets(Base):
+#     """
+#     This table stores data coming from tweets(twitter)
+#     """
+#
+#
+#     __tablename__ = "related_tweets"
+#
+#     tweet_id = Column(Text)
+#     twitter_user_id = Column(BigInteger)
+#     source = Column(Text)
+#
+#     tweet_datetime = Column(DateTime, default=datetime.datetime.utcnow)
+#     text = Column(Text)
+#     language = Column(Text)
 
 
 class Pagination(object):

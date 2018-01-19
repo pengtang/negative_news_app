@@ -1,3 +1,4 @@
+import os
 from flask import *
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask_paginate import Pagination, get_page_parameter, get_page_args
@@ -14,7 +15,6 @@ app = Flask(__name__)
 db = SQLAlchemy(app)
 
 # config
-import os
 app.config.from_object('config.BaseConfig')
 env = 'DEV'
 conf = {
@@ -32,7 +32,7 @@ app.jinja_env.globals['url_for_other_page'] = url_for_other_page
 def home(page):
     page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
     # all_articles = db.session.query(RelatedArticles).all()
-    articles = db.session.query(RelatedArticles).limit(per_page).offset(offset)
+    articles = db.session.query(RelatedArticles).order_by(RelatedArticles.related_probability).limit(per_page).offset(offset)
     count = db.session.query(RelatedArticles).count()
     if not articles and page != 1:
         abort(404)

@@ -10,6 +10,9 @@ flask-paginate
 flask_sqlalchemy
 psycopg2
 tweepy==3.5.0
+pandas==0.20.3
 numpy==1.13.3
 nltk==3.2.4
 textblob==0.13.0
+sklearn
+pyyaml

@@ -5,8 +5,9 @@
 -------------
 ### Crawl Sources
 >  - [x] Google-Search-API
+>  - [x] Twitter
 >  - [ ] Newspaper source
->  - [ ] Glassdoor, Twitter, Facebook, LinkedIn etc
+>  - [ ] Glassdoor, Facebook, LinkedIn etc
 
 ---------
 ## **Store Data in DB**

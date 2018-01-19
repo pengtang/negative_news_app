@@ -1,0 +1,10 @@
+boost_keyword:
+  'kc': 1.2
+  'kansas city': 1.2
+  'intermediary': 0.5
+
+
+unboost_keywords:
+  'daylight saving time': -1.2
+  'argus news': -0.5
+
